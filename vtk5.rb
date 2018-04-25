@@ -140,7 +140,7 @@ class Vtk5 < Formula
         end
       end
       args << ".."
-      system "CC=gcc-5 CXX=g++-5 cmake", *args
+      system "cmake", *args
       system "make"
       system "make", "install"
     end
