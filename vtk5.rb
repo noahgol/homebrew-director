@@ -50,7 +50,7 @@ class Vtk5 < Formula
   depends_on "cmake" => :build
   depends_on :x11 => :optional
   depends_on "qt" => :optional
-  depends_on :python => :recommended
+  depends_on "python@2" => :recommended
   # If --with-qt and --with-python, then we automatically use PyQt, too!
   if build.with?("qt") && build.with?("python")
     depends_on "sip"
