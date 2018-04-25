@@ -140,7 +140,7 @@ class Vtk5 < Formula
         end
       end
       args << ".."
-      system "cmake", *args
+      system "CC=gcc-5 CXX=g++-5 cmake", *args
       system "make"
       system "make", "install"
     end
@@ -150,7 +150,7 @@ class Vtk5 < Formula
 
   def caveats
     s = ""
-    s += <<-EOS.undent
+    s += <<~EOS
         Even without the --with-qt option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
         in PyQt, PySide, Tk or Wx at runtime. Read more:
@@ -162,7 +162,7 @@ class Vtk5 < Formula
     EOS
 
     if build.with? "examples"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         The scripting examples are stored in #{HOMEBREW_PREFIX}/share/vtk
 
